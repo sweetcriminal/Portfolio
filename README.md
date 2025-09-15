@@ -1,2 +1,1 @@
-# Portfolio
-My tech portfolio to showcase my IT skills
+# Welcome to my tech portfolio
