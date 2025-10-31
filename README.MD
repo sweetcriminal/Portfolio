@@ -7,6 +7,12 @@ There is, however, quite a few limitations that I encounter due to this, such as
 This is the the starting topology I've decided to represent the internet.
 </p>
  
-<img width="1084" height="712" alt="Initial Topology" src="https://github.com/user-attachments/assets/d64b7c32-a947-4430-8e97-db55a015f19b" />
+
+
+<p>
+I've decided that I want to use BGP to get things rolling on the internet side of things, but first, some basic IP connectivity is required.
+</p>
+
+
 
 </div>
