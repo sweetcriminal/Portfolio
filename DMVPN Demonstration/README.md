@@ -33,23 +33,15 @@ This configuration has been copied and altered to match each individual device. 
 split-horizon has been disabled on the HUB, but it is still enabled on the spokes. The networks learned through the tunnel interface need to be advertised back
 out of that interface, so disabling it is pretty important.
 
-<img alt="EIGRP Config" src="" />
+<img alt="EIGRP Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/DMVPN%20Demonstration/Images/EIGRP%20Config.png" />
 
 And just like that, the routes and adjacencies populate.
 
-<img alt="EIGRP IP Route" src="" />
-<img alt="EIGRP Neighbors" src="" />
+<img alt="EIGRP IP Route" src="https://github.com/sweetcriminal/Portfolio/blob/main/DMVPN%20Demonstration/Images/EIGRP%20IP%20Route.png" />
+<img alt="EIGRP Neighbors" src="https://github.com/sweetcriminal/Portfolio/blob/main/DMVPN%20Demonstration/Images/EIGRP%20Neighbors.png" />
 
 All that's left is to verify that all the loopbacks can be pinged. I'll be testing this from R1-Sp.
 
-<img alt="EIGRP Loopback Pings" src="" />
+<img alt="EIGRP Loopback Pings" src="https://github.com/sweetcriminal/Portfolio/blob/main/DMVPN%20Demonstration/Images/EIGRP%20Loopback%20Pings.png" />
 
-
-
-
-
-
-
-
-
-<img alt="" src="" />
+#### Success! This concludes my DMVPN demonstration!
