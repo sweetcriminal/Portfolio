@@ -1,4 +1,4 @@
-Here I will demonstrate some more advanced routing implementations. I intend to use OSPF, BPG, and EIGRP in unison. Here is the basic topology I've decided to go with:
+Here I will demonstrate some more advanced routing implementations. I intend to use OSPF, BGP, and EIGRP in unison. Here is the basic topology I've decided to go with:
 R1 and R2 will be iBGP neighbors in AS 65001 and Internet will be an eBGP neighbor in AS 20000. Both R1 and R2 are configured with a default route that points to Internet.
 
 
