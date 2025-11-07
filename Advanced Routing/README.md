@@ -60,3 +60,7 @@ In order to get things pinging from one side to the other, I'll need to set up a
 certain limitations).
 
 <img alt="Redistributed Routes R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/11%20Redistributed%20Routes%20R6.png"/>
+
+Now, all that's left is to verify that I can reach R6 from OSPF Area 0. Here is a traceroute form R3.
+
+<img alt="Traceroute to R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/12%20Traceroute%20to%20R6.png" />
