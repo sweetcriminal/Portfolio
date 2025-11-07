@@ -50,8 +50,11 @@ There have been a lot of changes over the course of this project. Here's an upda
 <img alt="Full Topology" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/10%20Full%20Topology.png"/>
 
 
+As you can see, I've taken the liberty of changing a couple things. I figured it was about time EIGRP got involved, so I made an off-shoot from R5 and had them 
+form an adjacency. I currently have Area 1 as an NSSA, so this should still work just fine. I redistributed all of my OSPF routes into EIGRP so that way R6 has a
+way to reach the other side of the tunnel.
+
+Just as hoped, the tunnel routes are there, and all the OSPF routes from the other side of the tunnel are there.
 
 
-
-
-<img alt="" src=""/>
+<img alt="Redistributed Routes R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/11%20Redistributed%20Routes%20R6.png"/>
