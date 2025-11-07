@@ -22,13 +22,32 @@ adjacency, as shown here:
 
 <img alt="OSPF Adjacency over GRE" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/5%20OSPF%20Adjacency%20over%20GRE.png"/>
 
+Forming a GRE tunnel accross the internet, however, is not secure. Here is my working IPSec configuration applied to both tunnels:
 
 
+<img alt="Configured GRE and IPSEC" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/6%20Configured%20GRE%20and%20IPSec.png"/>
+
+Now, at this point, I need to see if I can actually reach networks behind the tunnel. Here I'm pinging from R3 (which is behind the tunnel in OSPF Area 0) to R5's 
+loopback 0 interface. As you can see, I am successful!
 
 
+<img alt="Fake R5 Network" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/7%20Ping%20R5%20Fake%20Network.png"/>
+
+I figure that I should also verify that my tunnels actually provide the redundancy I want them to. I decided to shutdown the tunnel source interface (which is also 
+the direct connection to the internet) and run a traceroute to R5's loopback. Looks like it took the path I wanted it to, so that's another success!
 
 
+<img alt="Redundancy Test" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/8%20Redundancy%20Test.png"/>
 
+Taking a step back a bit, I noticed that the routing table was getting a little crowded and that it could be summarized. Both R1 and R2 are both ABRs and ASBRs, so they advertize many of the same routes and therefore need similar configurations. Here's my implementation:
+
+
+<img alt="OSPF Summary" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/9%20OSPF%20Summary.png"/>
+
+There have been a lot of changes over the course of this project. Here's an updated look at the topology with some new labelling.
+
+
+<img alt="Full Topology" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/10%20Full%20Topology.png"/>
 
 
 
