@@ -20,7 +20,7 @@ I created 2 GRE tunnels from R1 and R2 over the Internet node that provide redun
 
 <img alt="OSPF Adjacency over GRE" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/5%20OSPF%20Adjacency%20over%20GRE.png"/>
 
-Forming a GRE tunnel accross the internet, however, is not secure. Here is my working IPSec configuration applied to both tunnels:
+Forming a GRE tunnel across the internet, however, is not secure. Here is my working IPSec configuration applied to both tunnels:
 
 
 <img alt="Configured GRE and IPSEC" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/6%20Configured%20GRE%20and%20IPSec.png"/>
