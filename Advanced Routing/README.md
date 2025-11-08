@@ -51,7 +51,7 @@ As you can see, I've taken the liberty of changing a couple things. I figured it
 
 Just as hoped, the tunnel routes are there, and all the OSPF routes from the other side of the tunnel are there.
 
-In order to get things pinging from one side to the other, I'll need to set up a static route on R1 and R2 to know how to reach this new EIGRP network without redistributing back into OSPF (although, that is alos an option depending on certain limitations).
+In order to get things pinging from one side to the other, I'll need to set up a static route on R1 and R2 to know how to reach this new EIGRP network without redistributing back into OSPF (although, that is also an option depending on certain limitations).
 
 <img alt="Redistributed Routes R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/11%20Redistributed%20Routes%20R6.png"/>
 
