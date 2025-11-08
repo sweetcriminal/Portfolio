@@ -16,9 +16,7 @@ The first branch needs something to reach across the internet, so I've made this
 
 <img alt="Second Topology" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/4%20Second%20Topology.png"/>
 
-I created 2 GRE tunnels from R1 and R2 over the Internet node that provide redundant connections to R5. R1, R2, and R5 all have default routes that point to the 
-internet, which is how they're able to reach each other initially. I then wanted R5 to be a part of OSPF, but in area 1. I was able to successfully form that
-adjacency, as shown here:
+I created 2 GRE tunnels from R1 and R2 over the Internet node that provide redundant connections to R5. R1, R2, and R5 all have default routes that point to the internet, which is how they're able to reach each other initially. I then wanted R5 to be a part of OSPF, but in area 1. I was able to successfully form that adjacency, as shown here:
 
 <img alt="OSPF Adjacency over GRE" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/5%20OSPF%20Adjacency%20over%20GRE.png"/>
 
@@ -33,8 +31,7 @@ loopback 0 interface. As you can see, I am successful!
 
 <img alt="Fake R5 Network" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/7%20Ping%20R5%20Fake%20Network.png"/>
 
-I figure that I should also verify that my tunnels actually provide the redundancy I want them to. I decided to shutdown the tunnel source interface (which is also 
-the direct connection to the internet) and run a traceroute to R5's loopback. Looks like it took the path I wanted it to, so that's another success!
+I figure that I should also verify that my tunnels actually provide the redundancy I want them to. I decided to shutdown the tunnel source interface (which is also the direct connection to the internet) and run a traceroute to R5's loopback. Looks like it took the path I wanted it to, so that's another success!
 
 
 <img alt="Redundancy Test" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/8%20Redundancy%20Test.png"/>
@@ -50,17 +47,21 @@ There have been a lot of changes over the course of this project. Here's an upda
 <img alt="Full Topology" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/10%20Full%20Topology.png"/>
 
 
-As you can see, I've taken the liberty of changing a couple things. I figured it was about time EIGRP got involved, so I made an off-shoot from R5 and had them 
-form an adjacency. I currently have Area 1 as an NSSA, so this should still work just fine. I redistributed all of my OSPF routes into EIGRP so that way R6 has a
-way to reach the other side of the tunnel.
+As you can see, I've taken the liberty of changing a couple things. I figured it was about time EIGRP got involved, so I made an off-shoot from R5 and had them form an adjacency. I currently have Area 1 as an NSSA, so this should still work just fine. I redistributed all of my OSPF routes into EIGRP so that way R6 has a way to reach the other side of the tunnel.
 
 Just as hoped, the tunnel routes are there, and all the OSPF routes from the other side of the tunnel are there.
 
-In order to get things pinging from one side to the other, I'll need to set up a static route on R1 and R2 to know how to reach this new EIGRP network without redistributing back into OSPF (although, that is alos an option depending on
-certain limitations).
+In order to get things pinging from one side to the other, I'll need to set up a static route on R1 and R2 to know how to reach this new EIGRP network without redistributing back into OSPF (although, that is alos an option depending on certain limitations).
 
 <img alt="Redistributed Routes R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/11%20Redistributed%20Routes%20R6.png"/>
 
 Now, all that's left is to verify that I can reach R6 from OSPF Area 0. Here is a traceroute form R3.
 
 <img alt="Traceroute to R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/12%20Traceroute%20to%20R6.png" />
+
+You can see that the traceroute takes the packet through R1. Well, just becuase we can, let's alter the route. There are a few ways to do this; I could try to set a default route that forces a packet out of a specific interface, but that isn't scalable. I could alter the OSPF cost to be higher on the link to R1, and that would definitely work, but, in the spirit of showcasing as many concepts as possible, I will opt for creating a route map instead.
+
+The route map will be placed on R3 so that it takes a route directly to R2 instead of R1. It will do this ONLY when trying to reach the 10.10.10.65 network (the loopback address on R5). If it is trying to reach any other destination, it will follow is routing table.
+
+
+
