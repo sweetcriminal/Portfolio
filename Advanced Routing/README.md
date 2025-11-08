@@ -61,7 +61,7 @@ Now, all that's left is to verify that I can reach R6 from OSPF Area 0. Here is 
 
 You can see that the traceroute takes the packet through R1. Well, just becuase we can, let's alter the route. There are a few ways to do this; I could try to set a default route that forces a packet out of a specific interface, but that isn't scalable. I could alter the OSPF cost to be higher on the link to R1, and that would definitely work, but, in the spirit of showcasing as many concepts as possible, I will opt for creating a route map instead.
 
-The route map will be placed on R3 so that it takes a route directly to R2 instead of R1. It will do this ONLY when trying to reach the 10.10.10.65 network (the loopback address on R5). If it is trying to reach any other destination, it will follow is routing table.
+The route map will be placed on R3 so that it takes a route directly to R2 (10.10.10.17) instead of R1 (10.10.10.5). It will do this ONLY when trying to reach the 10.10.10.65 network (the loopback address on R5). If it is trying to reach any other destination, it will follow is routing table.
 
 
 
