@@ -109,7 +109,7 @@ After updating the DHCP pool on R6 to use the new virtual address, I should veri
 
 Now that I have users to support, some QoS is probably in order as well. While I'm working with data priority, I'll implement CoPP as well.
 
-This configuration should limit traffic to internal destinations, hopefully saving bandwidth meant for external destinations such as the internet or anything across the tunnel.
+This configuration should limit traffic to internal destinations, hopefully saving bandwidth meant for external destinations such as the internet or anything across the tunnel. I've copied this configuration over to R3 as well.
 
 <img alt="QoS Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/18%20QoS%20Config.png" />
 <br/>
