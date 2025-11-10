@@ -1,4 +1,10 @@
+# Advanced Routing
+
 Here I will demonstrate some more advanced routing implementations. I intend to use OSPF, BGP, and EIGRP in unison. Here is the basic topology I've decided to go with.
+<br/>
+
+## Setting things up
+
 R1 and R2 will be iBGP neighbors in AS 65001 and Internet will be an eBGP neighbor in AS 20000. Both R1 and R2 are configured with a default route that points to Internet.
 
 
@@ -11,6 +17,9 @@ I've made this full mesh topology into OSPF Area 0 and marked it as such.
 You can see the routing table for R1 here, showing all the OSPF and BGP learned routes.
 
 <img alt="OSPF and BGP Routes" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/3%20OSPF%20and%20BGP%20Routes.png" />
+<br/>
+
+## Crossing the Internet
 
 The first branch needs something to reach across the internet, so I've made this 2nd branch here.
 
@@ -58,8 +67,14 @@ In order to get things pinging from one side to the other, I'll need to set up a
 Now, all that's left is to verify that I can reach R6 from OSPF Area 0. Here is a traceroute form R3.
 
 <img alt="Traceroute to R6" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/12%20Traceroute%20to%20R6.png" />
+<br/>
 
+## More IP Services
+<b/>
 
+### DHCP Relay
+<b/>
 
+I know that it is generally poor practice to place a DHCP server so far away from clients that need it (especially across the internet), but, in the spirit of showcasing skills, I've decided to make R6 (across the internet) a DHCP server for our users connected to OSPF Area 0.
 
 
