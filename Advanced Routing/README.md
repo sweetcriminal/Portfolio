@@ -77,4 +77,29 @@ Now, all that's left is to verify that I can reach R6 from OSPF Area 0. Here is 
 
 I know that it is generally poor practice to place a DHCP server so far away from clients that need it (especially across the internet), but, in the spirit of showcasing skills, I've decided to make R6 (across the internet) a DHCP server for our users connected to OSPF Area 0.
 
+I've decided to add on to the topology a bit so that way we actually have a user to suppport. In my current setup of GNS3, I don't have access to any switch images, so I'll be going with an unmanaged switch.
 
+<img alt="DHCP Topology" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/13%20DHCP%20Topology.png" />
+<br/>
+
+I'll be using R4 as the default gateway and DHCP relay. I was able to pull an IP all the way from R6 this way.
+
+<img alt="DHCP Success and Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/14%20DHCP%20Success%20and%20Config.png" />
+<br/>
+
+Now that I have a user, I need to make sure that their connection is secure for failover.
+
+### First Hop Redundancy
+<br/>
+
+I could've gone with VRRP or GLBP for this as well, but I don't see much reason in this instance to go for those. Perhaps in an environment with multiple vendors, I would employ VRRP, or GLBP in a high volume environment for load balancing, but a simple HSRP configuration should do well here.
+
+<img alt="HSRP Verification" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/15%20HSRP%20Verification.png" />
+<br/>
+<img alt="HSRP Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/16%20HSRP%20Config.png" />
+<br/>
+
+After updating the DHCP pool on R6 to use the new virtual address, I should verify that things will properly failover. Here, I've shutdown the access interface on R4 and allowing 
+
+
+<img alt="" src="" />
