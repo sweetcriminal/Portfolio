@@ -92,14 +92,29 @@ Now that I have a user, I need to make sure that their connection is secure for 
 ### First Hop Redundancy
 <br/>
 
-I could've gone with VRRP or GLBP for this as well, but I don't see much reason in this instance to go for those. Perhaps in an environment with multiple vendors, I would employ VRRP, or GLBP in a high volume environment for load balancing, but a simple HSRP configuration should do well here.
+I could've gone with VRRP or GLBP for this as well, but I don't see much reason in this instance to go for those. Perhaps in an environment with multiple vendors I would employ VRRP or GLBP in a high volume environment for load balancing, but a simple HSRP configuration should do well here.
 
 <img alt="HSRP Verification" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/15%20HSRP%20Verification.png" />
 <br/>
 <img alt="HSRP Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/16%20HSRP%20Config.png" />
 <br/>
 
-After updating the DHCP pool on R6 to use the new virtual address, I should verify that things will properly failover. Here, I've shutdown the access interface on R4 and allowing 
+After updating the DHCP pool on R6 to use the new virtual address, I should verify that things will properly failover. Here, I've shutdown the access interface on R3 and allowing everything to failover successfully.
 
+<img alt="HSRP Redundancy Test" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/17%20HSRP%20Redundancy%20Test.png" />
+<br/>
+
+### QoS and CoPP
+<br/>
+
+Now that I have users to support, some QoS is probably in order as well. While I'm working with data priority, I'll implement CoPP as well.
+
+This configuration should limit traffic to internal sources, hopefully saving bandwidth meant for external sources such as the internet or anything across the tunnel.
+
+<img alt="QoS Config" src="https://github.com/sweetcriminal/Portfolio/blob/main/Advanced%20Routing/Images/18%20QoS%20Config.png" />
+<br/>
+
+
+<img alt="" src="" />
 
 <img alt="" src="" />
