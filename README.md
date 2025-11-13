@@ -9,4 +9,4 @@ and demonstrate what I am capable of. Showcases will be built around certain con
 
 ## How to navigate
 
-I plan to add hyperlinks to all showcases in the future. In the meantime, choose a showcase you'd like to see from the file structure above. Each one has a README for viewing the full deomstration, as well as a folder of all the images used.
+I plan to add hyperlinks to all showcases in the future. In the meantime, choose a showcase you'd like to see from the file structure above. Each one has a README for viewing the full demonstration, as well as a folder of all the images used.
